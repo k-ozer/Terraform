@@ -1,3 +1,4 @@
+# Configure Terraform version requirements and AWS provider version
 terraform {
   required_version = ">= 1.5.0"
 
@@ -9,10 +10,12 @@ terraform {
   }
 }
 
+# Configure AWS provider with region from variables
 provider "aws" {
   region = var.aws_region
 }
 
+# Create security group to control inbound and outbound traffic
 resource "aws_security_group" "CI_sg" {
   name        = "cloud-init-sg"
   description = "Allow HTTP and SSH"
@@ -45,6 +48,7 @@ resource "aws_security_group" "CI_sg" {
   }
 }
 
+# Creates an EC2 instance with cloud-init configuration
 resource "aws_instance" "EC2" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
