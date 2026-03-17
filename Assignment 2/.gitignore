@@ -1,0 +1,5 @@
+# Added to handle Terraform state files
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
