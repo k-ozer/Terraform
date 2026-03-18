@@ -2,7 +2,7 @@ Assignment 1 – Deploy WordPress Using Terraform
 
 Overview
 
-This project uses **Terraform** to deploy a basic WordPress stack on AWS.  
+This project uses Terraform to deploy a basic WordPress stack on AWS.  
 The infrastructure includes:
 
 - An EC2 instance running WordPress
@@ -44,4 +44,3 @@ Issues and Fixes
 3. User data errors
 - Issue: Some installation steps failed  
 - Fix: Checked package manager commands and ensured the script matched the selected AMI (Amazon Linux / Ubuntu)
-
