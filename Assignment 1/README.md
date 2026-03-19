@@ -1,46 +1,54 @@
-Assignment 1 – Deploy WordPress Using Terraform
+# Assignment 1 – Deploy WordPress Using Terraform
 
-Overview
+## Overview
 
-This project uses Terraform to deploy a basic WordPress stack on AWS.  
+This project uses **Terraform** to deploy a basic **WordPress stack on AWS**.  
 The infrastructure includes:
 
-- An EC2 instance running WordPress
-- A security group allowing HTTP and SSH access
-- A user data script to automatically install WordPress and its dependencies
-- A public endpoint to access the site in a browser
+- An **EC2 instance** running WordPress
+- A **security group** allowing HTTP and SSH access
+- A **user data script** to automatically install WordPress and its dependencies
+- A **public endpoint** to access the site in a browser
 
-All resources were provisioned using Infrastructure as Code (IaC) with Terraform.
+All resources were used **Infrastructure as Code (IaC)** with Terraform.
 
-Terraform Structure
+---
+
+## Terraform Structure
 
 The project is split into three main Terraform files:
 
-- main.tf – Contains the AWS provider, EC2 instance, security group, and user data configuration
-- variables.tf – Stores reusable input values such as region, AMI, instance type, and key pair
-- outputs.tf – Displays useful details after deployment, such as the EC2 public IP or website URL
+- **`main.tf`** – Contains the AWS provider, EC2 instance, security group, and user data configuration
+- **`variables.tf`** – Stores reusable input values such as region, AMI, instance type, and key pair
+- **`outputs.tf`** – Displays useful details after deployment, such as the EC2 public IP or website URL
 
-If used, the WordPress installation script is stored in userdata.sh or embedded directly inside main.tf.
+If used, the WordPress installation script is stored in **`userdata.sh`** or embedded directly inside `main.tf`.
 
-What I Learned
+---
+
+## What I Learned
 
 This assignment helped me understand:
 
-- How to use Terraform to automate AWS infrastructure
-- How EC2, security groups, and user data work together
+- How to use **Terraform** to automate AWS infrastructure
+- How **EC2**, **security groups**, and **user data** work together
 - How to structure Terraform code using separate files
 - The importance of repeatable deployments using Infrastructure as Code
 
-Issues and Fixes
+---
 
-1. Website not loading
-- Issue: WordPress did not appear immediately after deployment  
-- Fix: Waited for the EC2 user data script to finish installing packages and starting services
+## Issues and Fixes
 
-2. Security group access
-- Issue: The site was unreachable in the browser  
-- Fix: Confirmed that port 80 was open for HTTP and port 22 for SSH
+### 1. Website not loading
+- **Issue:** WordPress did not appear immediately after deployment  
+- **Fix:** Waited for the EC2 user data script to finish installing packages and starting services
 
-3. User data errors
-- Issue: Some installation steps failed  
-- Fix: Checked package manager commands and ensured the script matched the selected AMI (Amazon Linux / Ubuntu)
+### 2. Security group access
+- **Issue:** The site was unreachable in the browser  
+- **Fix:** Confirmed that **port 80** was open for HTTP and **port 22** for SSH
+
+### 3. User data errors
+- **Issue:** Some installation steps failed  
+- **Fix:** Checked package manager commands and ensured the script matched the selected AMI (Amazon Linux / Ubuntu)
+
+---
